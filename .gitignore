@@ -4,3 +4,4 @@ to_delete
 connections/*
 !connections/
 !connections/conn_template.json
+.venv

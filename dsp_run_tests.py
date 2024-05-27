@@ -44,7 +44,6 @@ dsp1_cli = dspClient(connection_info["dsp_url"], connection_info["authorization_
 # create dsp client
 dsp2_cli = dspClient(connection_info["dsp_url"], connection_info["authorization_url"], connection_info["token_url"], connection_info["redirect_url"], connection_info["client_id"], connection_info["client_secret"], connection_info["refresh_token_file_name"])
 
-
 #-----------------------------------------------------------
 # call dsp functions
 #-----------------------------------------------------------
