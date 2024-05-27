@@ -26,12 +26,9 @@ class dspClient:
     def __init__(self, dsp_url, authorization_url, token_url, redirect_url, client_id, client_secret, refresh_token_file):
         self.client_id = client_id
         self.client_secret = client_secret
-        #self.auth_url = auth_url
         self.dsp_url = dsp_url
         self.authorization_code = None
-        #self.authorization_url = auth_url + '/oauth/authorize'
         self.authorization_url = authorization_url
-        # self.token_url = auth_url + '/oauth/token'
         self.token_url = token_url
         self.refresh_token_file = refresh_token_file
         
@@ -90,7 +87,6 @@ class dspClient:
         
         # check if there is a refresh token
         refresh_token = self.read_refresh_token()
-        #refresh_token_invalid = False
 
         if refresh_token:
             print('Refresh token found, trying to fetch new access token')
