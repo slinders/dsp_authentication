@@ -1,0 +1,2251 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "SAP Data Warehouse Cloud Command-Line Interface dwc Commands",
+        "description": "This document describes the available commands for the SAP Data Warehouse Cloud command-line interface dwc.",
+        "contact": {
+            "name": "SAP SE",
+            "url": "https://www.sap.com/products/data-warehouse-cloud/get-started.html"
+        },
+        "license": {
+            "name": "SAP FREEWARE LICENSE",
+            "url": "https://tools.hana.ondemand.com/sap-freeware-license.txt"
+        },
+        "version": "2023.19.0",
+        "x-document-version": "2023.13.0"
+    },
+    "tags": [
+        {
+            "name": "spaces",
+            "description": "manage spaces"
+        },
+        {
+            "name": "spaces save",
+            "description": "save space details based on an import file"
+        },
+        {
+            "name": "spaces create",
+            "description": "create or update space details based on an import file"
+        },
+        {
+            "name": "spaces read",
+            "description": "fetch space details for a specified space"
+        },
+        {
+            "name": "spaces delete",
+            "description": "delete an existing space"
+        },
+        {
+            "name": "users",
+            "description": "manage users"
+        },
+        {
+            "name": "users create",
+            "description": "create a user based on an import file"
+        },
+        {
+            "name": "users update",
+            "description": "update user properties based on an import file"
+        },
+        {
+            "name": "users delete",
+            "description": "delete users"
+        },
+        {
+            "name": "users list",
+            "description": "list all users"
+        },
+        {
+            "name": "scoped-roles",
+            "description": "manage scoped roles"
+        },
+        {
+            "name": "scoped-roles create",
+            "description": "create a scoped role based on an import file"
+        },
+        {
+            "name": "scoped-roles read",
+            "description": "view properties of a scoped role"
+        },
+        {
+            "name": "scoped-roles update",
+            "description": "update a scoped role based on an import file"
+        },
+        {
+            "name": "scoped-roles delete",
+            "description": "delete a scoped role"
+        },
+        {
+            "name": "scoped-roles list",
+            "description": "list all scoped roles"
+        },
+        {
+            "name": "scoped-roles users",
+            "description": "manage assignment of users to scoped roles"
+        },
+        {
+            "name": "scoped-roles users assign",
+            "description": "assign users to a scoped role"
+        },
+        {
+            "name": "scoped-roles users read",
+            "description": "list all users assigned to a scoped role"
+        },
+        {
+            "name": "scoped-roles users unassign",
+            "description": "remove users from a scoped role"
+        },
+        {
+            "name": "scoped-roles scopes",
+            "description": "manage assignment of scopes to scoped roles"
+        },
+        {
+            "name": "scoped-roles scopes assign",
+            "description": "assign scopes to a scoped role"
+        },
+        {
+            "name": "scoped-roles scopes read",
+            "description": "list all scopes assigned to a scoped role"
+        },
+        {
+            "name": "scoped-roles scopes unassign",
+            "description": "remove scopes from a scoped role"
+        },
+        {
+            "name": "spaces users",
+            "description": "manage assignment of users to spaces"
+        },
+        {
+            "name": "spaces users add",
+            "description": "add users to a space "
+        },
+        {
+            "name": "spaces users remove",
+            "description": "remove users from a space"
+        },
+        {
+            "name": "spaces users update",
+            "description": "update assignment of users to a space"
+        },
+        {
+            "name": "spaces users read",
+            "description": "list all users assigned to a space"
+        },
+        {
+            "name": "dbusers",
+            "description": "manage database users"
+        },
+        {
+            "name": "dbusers password",
+            "description": "maintain password of database user"
+        },
+        {
+            "name": "dbusers password reset",
+            "description": "reset password of database user"
+        },
+        {
+            "name": "spaces list",
+            "description": "return a list of existing spaces"
+        },
+        {
+            "name": "marketplace",
+            "description": "manage your SAP Data Marketplace"
+        },
+        {
+            "name": "marketplace licenses-by-provider",
+            "description": "manage your licenses"
+        },
+        {
+            "name": "marketplace contexts-by-provider",
+            "description": "manage your contexts"
+        },
+        {
+            "name": "marketplace contexts-by-provider list",
+            "description": "return a list of existing contexts"
+        },
+        {
+            "name": "marketplace contexts-by-provider create",
+            "description": "create a new context"
+        },
+        {
+            "name": "marketplace contexts-by-provider read",
+            "description": "read an existing context"
+        },
+        {
+            "name": "marketplace contexts-by-provider update",
+            "description": "update an existing context"
+        },
+        {
+            "name": "marketplace contexts-by-provider overwrite",
+            "description": "overwrite an existing context"
+        },
+        {
+            "name": "marketplace contexts-by-provider delete",
+            "description": "delete an existing context"
+        },
+        {
+            "name": "marketplace contexts-by-provider change-lifecycle-status",
+            "description": "change the lifecycle status of the context"
+        },
+        {
+            "name": "marketplace licenses-by-provider list",
+            "description": "return a list of existing licenses"
+        },
+        {
+            "name": "marketplace licenses-by-provider create",
+            "description": "create a new license"
+        },
+        {
+            "name": "marketplace licenses-by-provider read",
+            "description": "read an existing license"
+        },
+        {
+            "name": "marketplace licenses-by-provider update",
+            "description": "update an existing license"
+        },
+        {
+            "name": "marketplace licenses-by-provider overwrite",
+            "description": "overwrite an existing license"
+        },
+        {
+            "name": "marketplace licenses-by-provider delete",
+            "description": "delete an existing license"
+        },
+        {
+            "name": "marketplace licenses-by-provider change-lifecycle-status",
+            "description": "change the lifecycle status of the license"
+        },
+        {
+            "name": "marketplace licenses-by-provider products",
+            "description": "manage products assigned to the license"
+        },
+        {
+            "name": "marketplace licenses-by-provider products add",
+            "description": "add products to the license"
+        },
+        {
+            "name": "marketplace licenses-by-provider products remove",
+            "description": "remove products from the license"
+        },
+        {
+            "name": "marketplace providers",
+            "description": "manage your providers"
+        },
+        {
+            "name": "marketplace providers list",
+            "description": "return a list of existing providers"
+        },
+        {
+            "name": "marketplace providers read",
+            "description": "read a provider"
+        },
+        {
+            "name": "marketplace providers create",
+            "description": "create a new provider"
+        },
+        {
+            "name": "marketplace providers overwrite",
+            "description": "overwrite all properties of the provider with the provided data"
+        },
+        {
+            "name": "marketplace providers update",
+            "description": "overwrite only those properties of the provider defined in the provided data"
+        },
+        {
+            "name": "marketplace products",
+            "description": "manage your data products"
+        },
+        {
+            "name": "marketplace products create",
+            "description": "create a new data product"
+        },
+        {
+            "name": "marketplace products list",
+            "description": "return a list of existing data products"
+        },
+        {
+            "name": "marketplace products read",
+            "description": "read a data product"
+        },
+        {
+            "name": "marketplace products delete",
+            "description": "delete a data product"
+        },
+        {
+            "name": "marketplace products overwrite",
+            "description": "overwrite all properties of the data product with the provided data"
+        },
+        {
+            "name": "marketplace products update",
+            "description": "overwrite only those properties of the data product defined in the provided data"
+        },
+        {
+            "name": "marketplace products change-lifecycle-status",
+            "description": "change the lifecycle status of the data product"
+        },
+        {
+            "name": "marketplace products-by-provider",
+            "description": "manage your data products"
+        },
+        {
+            "name": "marketplace products-by-provider list",
+            "description": "list existing data products"
+        },
+        {
+            "name": "marketplace products-by-provider read",
+            "description": "read a data product"
+        },
+        {
+            "name": "marketplace products-by-provider create",
+            "description": "create a new data product"
+        },
+        {
+            "name": "marketplace products-by-provider delete",
+            "description": "delete a data product"
+        },
+        {
+            "name": "marketplace products-by-provider overwrite",
+            "description": "overwrite all properties of the data product with the provided data"
+        },
+        {
+            "name": "marketplace products-by-provider update",
+            "description": "overwrite only those properties of the data product defined in the provided data"
+        },
+        {
+            "name": "marketplace products-by-provider change-lifecycle-status",
+            "description": "change the lifecycle status of the data product"
+        },
+        {
+            "name": "tasks",
+            "description": "manage tasks"
+        },
+        {
+            "name": "tasks chains",
+            "description": "manage taskchains"
+        },
+        {
+            "name": "tasks chains run",
+            "description": "run a taskchain"
+        },
+        {
+            "name": "tasks consent",
+            "description": "manage consents"
+        },
+        {
+            "name": "tasks consent get",
+            "description": "get the status of the consent"
+        },
+        {
+            "name": "tasks consent give",
+            "description": "give consent to execute tasks on behalf of the user"
+        },
+        {
+            "name": "tasks consent revoke",
+            "description": "revoke consent given by the customer"
+        },
+        {
+            "name": "tasks logs",
+            "description": "manage logs"
+        },
+        {
+            "name": "tasks logs get",
+            "description": "get logs info of a given task by log Id"
+        },
+        {
+            "name": "tasks logs list",
+            "description": "get all logs of a certain object"
+        }
+    ],
+    "externalDocs": {
+        "description": "\"Create, Save, Read, Update, and Delete Spaces via the Command Line\" on help.sap.com",
+        "url": "https://help.sap.com/docs/SAP_DATASPHERE/9f804b8efa8043539289f42f372c4862/5eac5b71e2d34c32b63f3d8d47a0b1d0.html"
+    },
+    "paths": {
+        "/marketplace/api/v1/dsc/providers": {
+            "post": {
+                "operationId": "marketplace providers create",
+                "parameters": [
+                    {
+                        "name": "content-type",
+                        "in": "header",
+                        "description": "format to create a provider",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "application/vnd.sap.marketplace.provider+json"
+                            ],
+                            "example": "application/vnd.sap.marketplace.provider+json"
+                        }
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "x-read-path": "/marketplace/api/v1/dsc/providers/{providerIdentifier}",
+                "requestBody": {
+                    "description": "create a new provider",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostPutPatchProvider"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "marketplace providers list",
+                "parameters": [
+                    {
+                        "name": "accept",
+                        "in": "header",
+                        "description": "format to return the content in",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "application/vnd.sap.marketplace.providers.list+json",
+                                "application/vnd.sap.marketplace.providers.details+json"
+                            ],
+                            "default": "application/vnd.sap.marketplace.providers.list+json",
+                            "example": "application/vnd.sap.marketplace.providers.list+json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/marketplace/api/v1/dsc/providers/{providerIdentifier}": {
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ProviderIdentifier"
+                }
+            ],
+            "put": {
+                "operationId": "marketplace providers overwrite",
+                "parameters": [
+                    {
+                        "name": "content-type",
+                        "in": "header",
+                        "description": "format to overwrite a provider",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "application/vnd.sap.marketplace.provider+json"
+                            ],
+                            "example": "application/vnd.sap.marketplace.provider+json"
+                        }
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "overwrite all properties of the provider definition with the provided data",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostPutPatchProvider"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "patch": {
+                "operationId": "marketplace providers update",
+                "parameters": [
+                    {
+                        "name": "content-type",
+                        "in": "header",
+                        "description": "format to update a provider",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "application/vnd.sap.marketplace.provider+json"
+                            ],
+                            "example": "application/vnd.sap.marketplace.provider+json"
+                        }
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "overwrite only those properties of the provider defined in the provided data",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostPutPatchProvider"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "marketplace providers read",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/marketplace/api/v1/dsc/providers/{providerIdentifier}/products": {
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ProviderIdentifier"
+                }
+            ],
+            "post": {
+                "operationId": "marketplace products-by-provider create",
+                "parameters": [
+                    {
+                        "name": "content-type",
+                        "in": "header",
+                        "description": "format to create a product",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "application/vnd.sap.marketplace.product+json"
+                            ],
+                            "example": "application/vnd.sap.marketplace.product+json"
+                        }
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "x-read-path": "/marketplace/api/v1/dsc/providers/{providerIdentifier}/products/{dataProductIdentifier}",
+                "requestBody": {
+                    "description": "create a new data product",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostPutPatchDataProduct"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "marketplace products-by-provider list",
+                "parameters": [
+                    {
+                        "name": "accept",
+                        "in": "header",
+                        "description": "format to return the content in",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "application/vnd.sap.marketplace.products.list+json",
+                                "application/vnd.sap.marketplace.products.details+json"
+                            ],
+                            "default": "application/vnd.sap.marketplace.products.list+json",
+                            "example": "application/vnd.sap.marketplace.products.list+json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/marketplace/api/v1/dsc/providers/{providerIdentifier}/products/{dataProductIdentifier}": {
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ProviderIdentifier"
+                },
+                {
+                    "$ref": "#/components/parameters/DataProductIdentifier"
+                }
+            ],
+            "put": {
+                "operationId": "marketplace products-by-provider overwrite",
+                "parameters": [
+                    {
+                        "name": "content-type",
+                        "in": "header",
+                        "description": "format to overwrite a product",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "application/vnd.sap.marketplace.product+json"
+                            ],
+                            "example": "application/vnd.sap.marketplace.product+json"
+                        }
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "overwrite all properties of the data product with the provided data",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostPutPatchDataProduct"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "patch": {
+                "operationId": "marketplace products-by-provider update",
+                "parameters": [
+                    {
+                        "name": "content-type",
+                        "in": "header",
+                        "description": "format to update a product",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "application/vnd.sap.marketplace.product+json"
+                            ],
+                            "example": "application/vnd.sap.marketplace.product+json"
+                        }
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "overwrite only those properties of the data product defined in the provided data",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostPutPatchDataProduct"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "marketplace products-by-provider read",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "marketplace products-by-provider delete",
+                "x-user-to-confirm": "Do you really want to delete the data product {dataProductIdentifier}?",
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/marketplace/api/v1/dsc/providers/{providerIdentifier}/products/{dataProductIdentifier}/changeLifecycleStatus": {
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ProviderIdentifier"
+                },
+                {
+                    "$ref": "#/components/parameters/DataProductIdentifier"
+                }
+            ],
+            "post": {
+                "operationId": "marketplace products-by-provider change-lifecycle-status",
+                "parameters": [
+                    {
+                        "name": "content-type",
+                        "in": "header",
+                        "description": "format to change the lifecycle status of a product",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "application/vnd.sap.marketplace.product.change-lifecycle-status+json"
+                            ],
+                            "example": "application/vnd.sap.marketplace.product.change-lifecycle-status+json"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "new lifecycle status",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangeLifecycleStatus"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/marketplace/api/v1/dsc/products": {
+            "post": {
+                "operationId": "marketplace products create",
+                "parameters": [
+                    {
+                        "name": "content-type",
+                        "in": "header",
+                        "description": "format to create a product",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "application/vnd.sap.marketplace.product+json"
+                            ],
+                            "example": "application/vnd.sap.marketplace.product+json"
+                        }
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "x-read-path": "/marketplace/api/v1/dsc/products/{dataProductUUID}",
+                "requestBody": {
+                    "description": "create a new data product",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostPutPatchDataProduct"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "marketplace products list",
+                "parameters": [
+                    {
+                        "name": "accept",
+                        "in": "header",
+                        "description": "format to return the content in",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "application/vnd.sap.marketplace.products.list+json",
+                                "application/vnd.sap.marketplace.products.details+json"
+                            ],
+                            "default": "application/vnd.sap.marketplace.products.list+json",
+                            "example": "application/vnd.sap.marketplace.products.list+json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/marketplace/api/v1/dsc/products/{dataProductUUID}": {
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/DataProductUUID"
+                }
+            ],
+            "put": {
+                "operationId": "marketplace products overwrite",
+                "parameters": [
+                    {
+                        "name": "content-type",
+                        "in": "header",
+                        "description": "format to overwrite a product",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "application/vnd.sap.marketplace.product+json"
+                            ],
+                            "example": "application/vnd.sap.marketplace.product+json"
+                        }
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "overwrite all properties of the data product with the provided data",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostPutPatchDataProduct"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "patch": {
+                "operationId": "marketplace products update",
+                "parameters": [
+                    {
+                        "name": "content-type",
+                        "in": "header",
+                        "description": "format to update a product",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "application/vnd.sap.marketplace.product+json"
+                            ],
+                            "example": "application/vnd.sap.marketplace.product+json"
+                        }
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "overwrite only those properties of the data product defined in the provided data",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostPutPatchDataProduct"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "marketplace products read",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "marketplace products delete",
+                "x-user-to-confirm": "Do you really want to delete the data product {dataProductUUID}?",
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/marketplace/api/v1/dsc/products/{dataProductUUID}/changeLifecycleStatus": {
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/DataProductUUID"
+                }
+            ],
+            "post": {
+                "operationId": "marketplace products change-lifecycle-status",
+                "parameters": [
+                    {
+                        "name": "content-type",
+                        "in": "header",
+                        "description": "format to change the lifecycle status of a product",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "application/vnd.sap.marketplace.product.change-lifecycle-status+json"
+                            ],
+                            "example": "application/vnd.sap.marketplace.product.change-lifecycle-status+json"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "new lifecycle status",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangeLifecycleStatus"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/content": {
+            "put": {
+                "operationId": "spaces create",
+                "x-requestbody-fileonly": true,
+                "parameters": [
+                    {
+                        "name": "forceDefinitionDeployment",
+                        "in": "query",
+                        "description": "force redeployment of definitions",
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        }
+                    },
+                    {
+                        "name": "async",
+                        "in": "query",
+                        "description": "run deployment asynchronously",
+                        "schema": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    },
+                    {
+                        "name": "enforceDatabaseUserDeletion",
+                        "in": "query",
+                        "description": "to allow deletion of Database users",
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Space definition",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Space"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "202": {
+                        "description": "Accepted"
+                    }
+                }
+            },
+            "patch": {
+                "operationId": "spaces save",
+                "x-requestbody-fileonly": true,
+                "parameters": [
+                    {
+                        "name": "forceSave",
+                        "in": "query",
+                        "description": "force save of definitions",
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "save space definition",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Space"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "202": {
+                        "description": "Accepted"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "spaces read",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/SpaceQuery"
+                    },
+                    {
+                        "name": "spaceDefinition",
+                        "in": "query",
+                        "description": "read space definition",
+                        "schema": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    },
+                    {
+                        "name": "definitions",
+                        "in": "query",
+                        "description": "read definitions",
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "boolean",
+                                    "default": false
+                                },
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "connections",
+                        "in": "query",
+                        "description": "read connections",
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "boolean",
+                                    "default": false
+                                },
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "spaces delete",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/SpaceQuery"
+                    },
+                    {
+                        "name": "spaceDefinition",
+                        "in": "query",
+                        "description": "delete space definition",
+                        "schema": {
+                            "type": "boolean",
+                            "enum": [
+                                true
+                            ]
+                        }
+                    },
+                    {
+                        "name": "definitions",
+                        "in": "query",
+                        "description": "delete definitions",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "boolean",
+                            "enum": [
+                                true
+                            ]
+                        }
+                    },
+                    {
+                        "name": "connections",
+                        "in": "query",
+                        "description": "delete connections",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "boolean",
+                            "enum": [
+                                true
+                            ]
+                        }
+                    }
+                ],
+                "x-user-to-confirm": "Do you really want to delete space {space}?",
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/users": {
+            "post": {
+                "operationId": "users create",
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "Users definition",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "users list",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/UserContentHeader"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "users update",
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "Users definition",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "users delete",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/UserQuery"
+                    }
+                ],
+                "x-user-to-confirm": "Do you really want to delete these users?",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/scopedroles": {
+            "post": {
+                "operationId": "scoped-roles create",
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "Role definition",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Role"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "scoped-roles list",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/scopedroles/{role}": {
+            "get": {
+                "operationId": "scoped-roles read",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/RolePath"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "scoped-roles update",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/RolePath"
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "Role definition",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Role"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Updated"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "scoped-roles delete",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/RolePath"
+                    }
+                ],
+                "x-user-to-confirm": "Do you really want to delete this scoped role?",
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/scopedroles/{role}/users": {
+            "post": {
+                "operationId": "scoped-roles users assign",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/RolePath"
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "users assignment definition",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Role"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "scoped-roles users read",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/RolePath"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/scopedroles/{role}/users/mass-delete": {
+            "post": {
+                "operationId": "scoped-roles users unassign",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/RolePath"
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "users unassignment definition",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Role"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/scopedroles/{role}/scopes": {
+            "post": {
+                "operationId": "scoped-roles scopes assign",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/RolePath"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ScopeType"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ScopeQuery"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "scoped-roles scopes read",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/RolePath"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ScopeType"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/scopedroles/{role}/scopes/mass-delete": {
+            "post": {
+                "operationId": "scoped-roles scopes unassign",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/RolePath"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ScopeType"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ScopeQuery"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/spaces/{space}/users": {
+            "post": {
+                "operationId": "spaces users add",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/SpacePath"
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "space users assignment",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserAssignment"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "spaces users update",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/SpacePath"
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "space users assignment and unassignment",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Role"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "spaces users read",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/SpacePath"
+                    },
+                    {
+                        "$ref": "#/components/parameters/UserContentHeader"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/spaces/{space}/users/mass-delete": {
+            "post": {
+                "operationId": "spaces users remove",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/SpacePath"
+                    }
+                ],
+                "x-requestbody-fileonly": true,
+                "requestBody": {
+                    "description": "space users unassignment",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserRemove"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": "Users removed"
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/spaces": {
+            "get": {
+                "operationId": "spaces list",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/spaces/{space}/databaseusers/{databaseuser}/resetpassword": {
+            "post": {
+                "operationId": "dbusers password reset",
+                "parameters": [
+                    {
+                        "name": "space",
+                        "in": "path",
+                        "description": "space id",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "databaseuser",
+                        "in": "path",
+                        "description": "database user id",
+                        "required": true,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/tasks/chains/{space}/run/{object}": {
+            "post": {
+                "operationId": "tasks chains run",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/SpacePath"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ObjectPath"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK, task has started. LogId is provided in response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/runTaskResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/tasks/consent": {
+            "get": {
+                "operationId": "tasks consent get",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/getConsentResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "operationId": "tasks consent give",
+                "responses": {
+                    "201": {
+                        "description": "OK, consent created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/giveConsentSuccessResponse"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Consent already given",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/giveConsentAlreadyGivenResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "tasks consent revoke",
+                "responses": {
+                    "204": {
+                        "description": "Consent revoked"
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/tasks/logs/{space}/{logId}": {
+            "get": {
+                "operationId": "tasks logs get",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/InfoLevelHeader"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SpacePath"
+                    },
+                    {
+                        "$ref": "#/components/parameters/LogIDPath"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Log status retrieved",
+                        "content": {
+                            "status": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/getTaskLogStatusResponse"
+                                }
+                            },
+                            "details": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/getLogDetailsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found - No log found for given LogId and Space"
+                    }
+                }
+            }
+        },
+        "/dwaas-core/api/v1/tasks/logs/{space}": {
+            "get": {
+                "operationId": "tasks logs list",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/SpacePath"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ObjectQuery"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "all logs retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/listAllLogsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ContextChangeLifecycleStatus": {
+                "type": "object",
+                "properties": {
+                    "lifecycleStatus": {
+                        "description": "new lifecycle status",
+                        "type": "string",
+                        "enum": [
+                            "Activated"
+                        ]
+                    }
+                },
+                "required": [
+                    "lifecycleStatus"
+                ]
+            },
+            "LicenseChangeLifecycleStatus": {
+                "type": "object",
+                "properties": {
+                    "lifecycleStatus": {
+                        "description": "new lifecycle status",
+                        "type": "string",
+                        "enum": [
+                            "Activated"
+                        ]
+                    }
+                },
+                "required": [
+                    "lifecycleStatus"
+                ]
+            },
+            "ChangeLifecycleStatus": {
+                "type": "object",
+                "properties": {
+                    "lifecycleStatus": {
+                        "description": "new lifecycle status",
+                        "type": "string",
+                        "enum": [
+                            "Listed",
+                            "Delisted",
+                            "Deactivated"
+                        ]
+                    }
+                },
+                "required": [
+                    "lifecycleStatus"
+                ]
+            },
+            "getConsentResponse": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "description": "status of the consent",
+                        "type": "string",
+                        "enum": [
+                            "CONSENT_GIVEN",
+                            "NO_CONSENT",
+                            "CONSENT_EXPIRED"
+                        ]
+                    },
+                    "createdAt": {
+                        "description": "Creation date - only available if consent was given",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "validTo": {
+                        "description": "Expiration date of consent - only available if consent was given",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "giveConsentSuccessResponse": {
+                "type": "object",
+                "properties": {
+                    "redirectUrl": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                }
+            },
+            "giveConsentAlreadyGivenResponse": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "description": "status of the consent",
+                        "type": "string",
+                        "enum": [
+                            "CONSENT_ALREADY_GIVEN"
+                        ]
+                    }
+                }
+            },
+            "getTaskLogStatusResponse": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "description": "status of the task",
+                        "type": "string",
+                        "enum": [
+                            "COMPLETED",
+                            "RUNNING",
+                            "FAILED"
+                        ]
+                    }
+                }
+            },
+            "runTaskResponse": {
+                "type": "object",
+                "properties": {
+                    "logId": {
+                        "type": "number"
+                    }
+                }
+            },
+            "getLogDetailsResponse": {
+                "type": "object",
+                "properties": {
+                    "logId": {
+                        "type": "number"
+                    },
+                    "applicationId": {
+                        "type": "string"
+                    },
+                    "activity": {
+                        "type": "string"
+                    },
+                    "spaceId": {
+                        "type": "string"
+                    },
+                    "objectId": {
+                        "type": "string"
+                    },
+                    "startTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "endTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "runTime": {
+                        "description": "total runtime of the task in ms",
+                        "type": "number"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "COMPLETED",
+                            "RUNNING",
+                            "FAILED"
+                        ]
+                    },
+                    "user": {
+                        "description": "user who triggered the task",
+                        "type": "string"
+                    },
+                    "messages": {
+                        "type": "array",
+                        "items": {
+                            "schema": {
+                                "$ref": "#/components/schemas/taskMessage"
+                            }
+                        }
+                    },
+                    "children": {
+                        "description": "logs of chain's sub-tasks",
+                        "type": "array",
+                        "items": {
+                            "schema": {
+                                "$ref": "#/components/schemas/logHeader"
+                            }
+                        }
+                    }
+                }
+            },
+            "listAllLogsResponse": {
+                "type": "array",
+                "items": {
+                    "schema": {
+                        "$ref": "#/components/schemas/logHeader"
+                    }
+                }
+            },
+            "taskMessage": {
+                "type": "object",
+                "properties": {
+                    "messageNumber": {
+                        "type": "number"
+                    },
+                    "severity": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string"
+                    },
+                    "timestamp": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "logHeader": {
+                "type": "object",
+                "properties": {
+                    "logId": {
+                        "type": "number"
+                    },
+                    "applicationId": {
+                        "type": "string"
+                    },
+                    "activity": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "COMPLETED",
+                            "RUNNING",
+                            "FAILED"
+                        ]
+                    },
+                    "spaceId": {
+                        "type": "string"
+                    },
+                    "objectId": {
+                        "type": "string"
+                    },
+                    "startTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "endTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "runTime": {
+                        "description": "total runtime of the task in ms",
+                        "type": "number"
+                    },
+                    "user": {
+                        "description": "user who triggered the task",
+                        "type": "string"
+                    }
+                }
+            },
+            "revokeConsentResponse": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "description": "status of the consent",
+                        "type": "string",
+                        "enum": [
+                            "CONSENT_CREATED"
+                        ]
+                    }
+                }
+            },
+            "ObjectContent": {
+                "type": "object"
+            },
+            "technicalNames": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        },
+        "parameters": {
+            "SpaceQuery": {
+                "name": "space",
+                "in": "query",
+                "description": "space ID",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "MY_SPACE_1"
+                }
+            },
+            "ProviderIdentifier": {
+                "name": "providerIdentifier",
+                "in": "path",
+                "description": "provider identifier",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "bac5ed20-9558-4857-b9c3-c22b32e35a6c"
+                }
+            },
+            "LicenseIdentifier": {
+                "name": "licenseIdentifier",
+                "in": "path",
+                "description": "license identifier",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "bac5ed20-9558-4857-b9c3-c22b32e35a6c"
+                }
+            },
+            "ContextIdentifier": {
+                "name": "contextIdentifier",
+                "in": "path",
+                "description": "context identifier",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "bac5ed20-9558-4857-b9c3-c22b32e35a6c"
+                }
+            },
+            "DataProductIdentifier": {
+                "name": "dataProductIdentifier",
+                "in": "path",
+                "description": "data product identifier",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "bac5ed20-9558-4857-b9c3-c22b32e35a6c"
+                }
+            },
+            "DataProductUUID": {
+                "name": "dataProductUUID",
+                "in": "path",
+                "description": "data product UUID",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "bac5ed20-9558-4857-b9c3-c22b32e35a6c"
+                }
+            },
+            "LogIDPath": {
+                "name": "logId",
+                "in": "path",
+                "description": "logId of a task run",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "number",
+                    "example": "1"
+                }
+            },
+            "SpacePath": {
+                "name": "space",
+                "in": "path",
+                "description": "space ID",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "MY_SPACE_1"
+                }
+            },
+            "RolePath": {
+                "name": "role",
+                "in": "path",
+                "description": "role ID",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "role1"
+                }
+            },
+            "ObjectPath": {
+                "name": "object",
+                "in": "path",
+                "description": "technical name of an object",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "MY_OBJECT"
+                }
+            },
+            "ObjectQuery": {
+                "name": "object",
+                "in": "query",
+                "description": "technical name of an object",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "MY_OBJECT"
+                }
+            },
+            "InfoLevelHeader": {
+                "name": "infoLevel",
+                "in": "header",
+                "description": "format to return the content in",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "status",
+                        "details"
+                    ],
+                    "default": "status",
+                    "example": "status"
+                }
+            },
+            "TechNamePath": {
+                "name": "technicalName",
+                "in": "path",
+                "description": "technical name of an object",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "MY_OBJECT"
+                }
+            },
+            "ObjectContentHeader": {
+                "name": "accept",
+                "in": "header",
+                "description": "return all available content or only design-time or run-time content",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "application/vnd.sap.datasphere.object.content+json",
+                        "application/vnd.sap.datasphere.object.content.design-time+json",
+                        "application/vnd.sap.datasphere.object.content.run-time+json"
+                    ],
+                    "default": "application/vnd.sap.datasphere.object.content+json",
+                    "example": "application/vnd.sap.datasphere.object.content+json"
+                }
+            },
+            "ListTechnicalNames": {
+                "name": "technicalNames",
+                "in": "query",
+                "description": "filter the list using technical names. Example: --technical-names \"MY_OBJECT1,MY_OBJECT2\"",
+                "required": false,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "MY_OBJECT1,MY_OBJECT2"
+                }
+            },
+            "ListFilter": {
+                "name": "filter",
+                "in": "query",
+                "description": "filter the list using standard OData filter syntax. Example: --filter \"status eq Deployed\"",
+                "required": false,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "filter(Search.search(query='SCOPE:SEARCH_DESIGN (technical_type:EQ:DWC_REMOTE_TABLE OR technical_type:EQ:DWC_LOCAL_TABLE OR (technical_type:EQ:DWC_VIEW AND business_type:NE:DWC_CUBE))"
+                }
+            },
+            "ListSelect": {
+                "name": "select",
+                "in": "query",
+                "description": "choose the properties to include in the list. Example: --select \"technicalName,status\"",
+                "required": false,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "technicalName,status",
+                    "default": "technicalName"
+                }
+            },
+            "ListTop": {
+                "name": "top",
+                "in": "query",
+                "description": "restrict the list to the first <top> objects",
+                "required": false,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "number",
+                    "example": 20,
+                    "default": 25
+                }
+            },
+            "ListSkip": {
+                "name": "skip",
+                "in": "query",
+                "description": "exclude the first <skip> objects when creating the list",
+                "required": false,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "number",
+                    "example": 0,
+                    "default": 0
+                }
+            },
+            "SaveAnywayQuery": {
+                "name": "saveAnyway",
+                "in": "query",
+                "description": "force the saving of the object, even if there are some validation warnings when saving",
+                "required": false,
+                "allowEmptyValue": true,
+                "schema": {
+                    "type": "boolean"
+                }
+            },
+            "NoDeployQuery": {
+                "name": "noDeploy",
+                "in": "query",
+                "description": "do not deploy the object after saving",
+                "required": false,
+                "allowEmptyValue": true,
+                "schema": {
+                    "type": "boolean"
+                }
+            },
+            "ScopeQuery": {
+                "name": "scopes",
+                "in": "query",
+                "description": "comma separated scope IDs",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "SPACE_ID1,SPACE_ID2,SPACE_ID3,SPACE_ID4,SPACE_ID5"
+                }
+            },
+            "ScopeType": {
+                "name": "type",
+                "in": "query",
+                "description": "scope type",
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "space"
+                    ]
+                }
+            },
+            "UserQuery": {
+                "name": "users",
+                "in": "query",
+                "description": "comma separated user IDs",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "example": "userName1,userName2,userName3"
+                }
+            },
+            "UserContentHeader": {
+                "name": "accept",
+                "in": "header",
+                "description": "format to return the assigned users content",
+                "required": true,
+                "allowEmptyValue": false,
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "application/vnd.sap.datasphere.space.users.list+json",
+                        "application/vnd.sap.datasphere.space.users.details+json"
+                    ],
+                    "default": "application/vnd.sap.datasphere.space.users.list+json",
+                    "example": "application/vnd.sap.datasphere.space.users.list+json"
+                }
+            }
+        }
+    }
+}
